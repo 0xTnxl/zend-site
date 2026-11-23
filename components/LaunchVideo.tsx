@@ -32,7 +32,7 @@ export function WatchVideo({ className = "text-link" }: { className?: string }) 
           <path d="M3.5 2.2 L10 6 L3.5 9.8 Z" />
         </svg>
       </span>
-      <span aria-hidden="true">
+      <span className="watch-label" aria-hidden="true">
         Watch<span className="watch-rest"> the video</span>
       </span>
     </button>
