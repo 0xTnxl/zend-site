@@ -2264,6 +2264,40 @@ a {
 .watch:hover .watch-play {
   transform: scale(1.12);
 }
+.watch,
+.pill {
+  white-space: nowrap;
+}
+@media (max-width: 720px) {
+  /* Header on phones: just "▶ Watch", small, so the logo and Open Zend keep their room. */
+  .header-nav {
+    gap: 14px;
+  }
+  .header-link.watch {
+    font-size: 14px;
+    gap: 6px;
+  }
+  .header-link .watch-rest {
+    display: none;
+  }
+  .header-link .watch-play {
+    width: 20px;
+    height: 20px;
+  }
+  /* Hero link: a size down to sit beside the Open Zend button. */
+  .text-link.watch {
+    font-size: 15px;
+    gap: 8px;
+  }
+  .text-link .watch-play {
+    width: 26px;
+    height: 26px;
+  }
+  .text-link .watch-play svg {
+    width: 9px;
+    height: 9px;
+  }
+}
 .watch:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 4px;

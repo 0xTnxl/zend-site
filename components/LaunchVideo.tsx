@@ -24,6 +24,7 @@ export function WatchVideo({ className = "text-link" }: { className?: string }) 
     <button
       type="button"
       className={`watch ${className}`}
+      aria-label="Watch the video"
       onClick={() => window.dispatchEvent(new Event(OPEN_EVENT))}
     >
       <span className="watch-play" aria-hidden="true">
@@ -31,7 +32,9 @@ export function WatchVideo({ className = "text-link" }: { className?: string }) 
           <path d="M3.5 2.2 L10 6 L3.5 9.8 Z" />
         </svg>
       </span>
-      Watch the video
+      <span aria-hidden="true">
+        Watch<span className="watch-rest"> the video</span>
+      </span>
     </button>
   );
 }
