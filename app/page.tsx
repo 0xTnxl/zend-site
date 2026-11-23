@@ -3,6 +3,7 @@ import { Feed } from "@/components/Feed";
 import { FinalCta } from "@/components/FinalCta";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { LaunchVideo, WatchVideo } from "@/components/LaunchVideo";
 import { Network } from "@/components/Network";
 import { Promises } from "@/components/Promises";
 import { Ribbons } from "@/components/Ribbons";
@@ -39,9 +40,7 @@ export default function Home() {
                 <a href={site.appUrl} className="pill pill-ink">
                   Open Zend
                 </a>
-                <a href="#anywhere" className="text-link">
-                  Where it works <span aria-hidden="true">↓</span>
-                </a>
+                <WatchVideo />
               </div>
               <p className="hero-note">Free between people. Sign in with Google.</p>
             </div>
@@ -61,6 +60,7 @@ export default function Home() {
         <FinalCta />
       </main>
       <Footer />
+      <LaunchVideo />
     </>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
+import { WatchVideo } from "./LaunchVideo";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +23,7 @@ export function Header() {
           <span>Zend</span>
         </a>
         <nav className="header-nav" aria-label="Main">
-          <a href="#anywhere" className="header-link">Where it works</a>
+          <WatchVideo className="header-link" />
           <a href={site.developersUrl} className="header-link">Build on Zend</a>
           <a href={site.appUrl} className="pill pill-ink pill-sm">
             Open Zend

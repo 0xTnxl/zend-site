@@ -2208,3 +2208,143 @@ a {
     display: none;
   }
 }
+
+/* ── Launch video ────────────────────────────────────────────── */
+
+.watch {
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.text-link.watch {
+  padding-bottom: 2px;
+  font-weight: 500;
+}
+.header-link.watch {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--muted);
+  gap: 8px;
+}
+.header-link.watch:hover {
+  color: var(--ink);
+}
+.watch-play {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 8px 18px -10px rgba(15, 15, 14, 0.5);
+  transition: transform 0.4s var(--bounce, cubic-bezier(0.34, 1.56, 0.64, 1));
+}
+.header-link .watch-play {
+  width: 22px;
+  height: 22px;
+  box-shadow: 0 6px 12px -8px rgba(15, 15, 14, 0.5);
+}
+.watch-play svg {
+  width: 11px;
+  height: 11px;
+  margin-left: 2px;
+  fill: var(--signal);
+}
+.header-link .watch-play svg {
+  width: 8px;
+  height: 8px;
+}
+.watch:hover .watch-play {
+  transform: scale(1.12);
+}
+.watch:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+.film {
+  /* <dialog> centres itself in the top layer; this only sets its size and look. */
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+  max-width: none;
+  max-height: none;
+}
+.film::backdrop {
+  background: rgba(5, 20, 16, 0.86);
+  backdrop-filter: blur(6px);
+}
+.film[open] {
+  animation: film-in 0.45s var(--bounce, cubic-bezier(0.34, 1.56, 0.64, 1));
+}
+@keyframes film-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+}
+.film-frame {
+  position: relative;
+}
+.film-video {
+  display: block;
+  /* Landscape cut: as large as fits, keeping 16:9. */
+  width: min(92vw, calc(84vh * 16 / 9));
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  background: var(--green);
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.7);
+}
+.film-portrait .film-video {
+  width: min(92vw, calc(84vh * 9 / 16));
+  aspect-ratio: 9 / 16;
+}
+.film-close {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  top: -52px;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(247, 246, 243, 0.14);
+  transition: background-color 0.2s;
+}
+.film-close:hover {
+  background: rgba(247, 246, 243, 0.26);
+}
+.film-close svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: #f7f6f3;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+@media (max-height: 560px) {
+  /* Short landscape phones: no room above the video, so put the close button inside it. */
+  .film-close {
+    top: 10px;
+    right: 10px;
+    background: rgba(15, 15, 14, 0.5);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .film[open] {
+    animation: none;
+  }
+}
