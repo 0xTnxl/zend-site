@@ -29,6 +29,9 @@
 }
 
 html {
+  /* Decorations (glow, ribbons, watermark) bleed past the edge on purpose. `clip` keeps phones
+     from widening the page to fit them, and unlike `hidden` it doesn't break position: sticky. */
+  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
@@ -381,7 +384,8 @@ a {
     padding-top: 128px;
   }
   .hero-grid {
-    grid-template-columns: 1fr;
+    /* minmax(0, …) so the banknote's content can't push the column wider than the screen. */
+    grid-template-columns: minmax(0, 1fr);
   }
   .hero-glow {
     top: 45%;
